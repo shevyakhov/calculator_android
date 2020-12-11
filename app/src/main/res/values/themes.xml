@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Calculator" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/backbr</item>
+        <item name="colorPrimaryDark">@color/head</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="android:style/TextAppearance">
+        <item name="android:fontFamily">@font/yanus</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/texthead</item>
+
+
+    </style>
+</resources>

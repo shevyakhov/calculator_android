@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="backbr">#f1f3f6</color>
+    <color name="red">#FFFF0000</color>
+    <color name="def_but_cl">#dbdbdb</color>
+    <color name="head">#004eeb</color>
+    <color name="texthead">#80373A37</color>
+    <color name="mainBut">#F1F3F6</color>
+    <color name="secBut">#3A4E89</color>
+    <color name="textback">#B0BBA5</color>
+
+</resources>
