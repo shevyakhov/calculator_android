@@ -3,6 +3,7 @@ package com.example.calculator
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import net.objecthunter.exp4j.ExpressionBuilder
 
@@ -12,49 +13,61 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //Buttons
-        var x= 0
+        var countbracket = 0
 
-        button0.setOnClickListener {
-            if (mainStr.text.isNotEmpty())  mainStr.append("0")
 
+        zeroButton.setOnClickListener() {
+            val num = zeroButton.text.toString()
+
+            if (mainStr.text.isNotEmpty()) mainStr.append(num)
         }
-        button1.setOnClickListener() {
-            mainStr.append("1")
+
+        oneButton.setOnClickListener {
+            val num = oneButton.text.toString()
+            mainStr.append(num)
         }
-        button2.setOnClickListener() {
-            mainStr.append("2")
+        twoButton.setOnClickListener {
+                val num = twoButton.text.toString()
+                mainStr.append(num)
         }
-        button3.setOnClickListener() {
-            mainStr.append("3")
+        threeButton.setOnClickListener() {
+            val num = threeButton.text.toString()
+            mainStr.append(num)
         }
-        button4.setOnClickListener() {
-            mainStr.append("4")
+        fourButton.setOnClickListener() {
+            val num = fourButton.text.toString()
+            mainStr.append(num)
         }
-        button5.setOnClickListener() {
-            mainStr.append("5")
+        fiveButton.setOnClickListener() {
+            val num = fiveButton.text.toString()
+            mainStr.append(num)
         }
-        button6.setOnClickListener() {
-            mainStr.append("6")
+        sixButton.setOnClickListener() {
+            val num = sixButton.text.toString()
+            mainStr.append(num)
         }
-        button7.setOnClickListener() {
-            mainStr.append("7")
+        sevenButton.setOnClickListener() {
+            val num = sevenButton.text.toString()
+            mainStr.append(num)
         }
-        button8.setOnClickListener() {
-            mainStr.append("8")
+        eightButton.setOnClickListener() {
+            val num = eightButton.text.toString()
+            mainStr.append(num)
         }
-        button9.setOnClickListener() {
-            mainStr.append("9")
+        nineButton.setOnClickListener() {
+            val num = nineButton.text.toString()
+            mainStr.append(num)
         }
         buttonAC.setOnClickListener() {
             mainStr.text = ""
 
         }
-        buttonPerc.setOnClickListener(){
+        buttonPerc.setOnClickListener() {
 
-            x++
-            if (x % 2 ==1) {
+            countbracket++
+            if (countbracket % 2 == 1) {
                 mainStr.append("(")
-            }else
+            } else
                 mainStr.append(")")
 
         }
@@ -66,61 +79,66 @@ class MainActivity : AppCompatActivity() {
 
         }
         buttonPlus.setOnClickListener() {
+            val znak = buttonPlus.text.toString()
+            mainStr.append(znak)
             if (mainStr.text.isNotEmpty()) {
-                mainStr.append("+")
+                mainStr.append(znak)
 
             }
         }
         buttonMinus.setOnClickListener() {
+            val znak = buttonMinus.text.toString()
             if (mainStr.text.isNotEmpty()) {
-                mainStr.append("-")
+                mainStr.append(znak)
 
             }
 
         }
         buttonMult.setOnClickListener {
+            val znak = buttonMult.text.toString()
             if (mainStr.text.isNotEmpty()) {
-                mainStr.append("*")
+                mainStr.append(znak)
             }
 
         }
         buttonDiv.setOnClickListener {
+            val znak = buttonDiv.text.toString()
             if (mainStr.text.isNotEmpty()) {
-                mainStr.append("/")
+                mainStr.append(znak)
             }
 
         }
         buttonDot.setOnClickListener {
-                if (mainStr.text.isNotEmpty()) {
-                    if( mainStr.text.last().equals('.')){} else {
-                        mainStr.append(".")
-                    }
-                }else  mainStr.append("0.")
-            }
+            if (mainStr.text.isNotEmpty()) {
+                if (mainStr.text.last() != '.') {
+                    mainStr.append(".")
+                }
+            } else mainStr.append("0.")
+        }
         buttonEqual.setOnClickListener {
 
             try {
                 val eva = ExpressionBuilder(mainStr.text.toString()).build()
                 val result = eva.evaluate()
                 val nedot = result.toLong()
-                val formatted = String.format("%.3f", result).replace(',','.')
-                if (result.equals(nedot.toDouble())){
+                val formatted = String.format("%.3f", result).replace(',', '.')
+                if (result.equals(nedot.toDouble())) {
                     mainStr.text = nedot.toString()
                 } else
                     mainStr.text = formatted
 
 
-
-            } catch (e:Exception){
-                Log.d("Ошибка"," ${e.message}")
+            } catch (e: Exception) {
+                Log.d("Ошибка", " ${e.message}")
+                Toast.makeText(this, "ошибка", Toast.LENGTH_SHORT).show()
             }
-            }
-
-
-
-
         }
+
+
     }
+
+
+}
 
 
 
